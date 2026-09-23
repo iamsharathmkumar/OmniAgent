@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">OmniAgent AI</string>
+    <string name="accessibility_service_description">OmniAgent autonomous accessibility engine. Reads UI structure and executes authorized voice-driven actions (clicks, typing, navigation) to complete tasks on your behalf.</string>
+</resources>
