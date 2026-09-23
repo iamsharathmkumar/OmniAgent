@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#070A12"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- Header: Jarvis Arc Reactor Core -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="◉"
+                android:textColor="#00E5FF"
+                android:textSize="26sp"
+                android:layout_marginEnd="10dp" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="JARVIS AI • Friday"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_core_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="NEURAL CORE: ONLINE • STANDBY"
+                    android:textColor="#00E5FF"
+                    android:textSize="10sp"
+                    android:fontFamily="monospace" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_toggle_overlay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ARC HUD"
+                android:textSize="11sp"
+                android:backgroundTint="#0891B2"
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
+
+        <!-- System Capabilities Status Card -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#0E1626"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:layout_marginBottom="14dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="STARK OS SUB-SYSTEMS"
+                android:textColor="#38BDF8"
+                android:textSize="11sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_service_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Accessibility Service: CHECKING..."
+                android:textColor="#F87171"
+                android:textSize="12sp"
+                android:layout_marginTop="6dp" />
+
+            <Button
+                android:id="@+id/btn_enable_accessibility"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="1. Engage Accessibility Engine"
+                android:backgroundTint="#1E293B"
+                android:textColor="#E2E8F0"
+                android:textSize="12sp"
+                android:layout_marginTop="8dp" />
+
+            <Button
+                android:id="@+id/btn_grant_overlay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="2. Engage Floating Arc HUD Permission"
+                android:backgroundTint="#1E293B"
+                android:textColor="#E2E8F0"
+                android:textSize="12sp"
+                android:layout_marginTop="4dp" />
+
+            <Button
+                android:id="@+id/btn_grant_audio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="3. Engage Microphone Sensor"
+                android:backgroundTint="#1E293B"
+                android:textColor="#E2E8F0"
+                android:textSize="12sp"
+                android:layout_marginTop="4dp" />
+        </LinearLayout>
+
+        <!-- Voice Command Center -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#0E1626"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:layout_marginBottom="14dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="JARVIS VOICE PROTOCOL"
+                android:textColor="#38BDF8"
+                android:textSize="11sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="8dp">
+
+                <EditText
+                    android:id="@+id/et_command"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Instruct Jarvis (e.g. Flashlight, Open YouTube)..."
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#475569"
+                    android:background="#070A12"
+                    android:padding="12dp"
+                    android:textSize="12sp" />
+
+                <Button
+                    android:id="@+id/btn_mic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🎙️ Voice"
+                    android:backgroundTint="#00E5FF"
+                    android:textColor="#070A12"
+                    android:textStyle="bold"
+                    android:layout_marginStart="6dp" />
+
+                <Button
+                    android:id="@+id/btn_execute"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Send"
+                    android:backgroundTint="#0284C7"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginStart="4dp" />
+            </LinearLayout>
+
+            <!-- Jarvis Super Command Presets -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Quick Voice Presets (Works on any Android Phone):"
+                android:textColor="#64748B"
+                android:textSize="10sp"
+                android:layout_marginTop="10dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="6dp">
+
+                <Button
+                    android:id="@+id/btn_chip_torch"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="⚡ Flashlight"
+                    android:backgroundTint="#162032"
+                    android:textColor="#38BDF8"
+                    android:textSize="11sp"
+                    android:layout_marginEnd="4dp" />
+
+                <Button
+                    android:id="@+id/btn_chip_volume"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="🔊 Volume Up"
+                    android:backgroundTint="#162032"
+                    android:textColor="#38BDF8"
+                    android:textSize="11sp"
+                    android:layout_marginEnd="4dp" />
+
+                <Button
+                    android:id="@+id/btn_chip_battery"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="🔋 Diagnostics"
+                    android:backgroundTint="#162032"
+                    android:textColor="#38BDF8"
+                    android:textSize="11sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="4dp">
+
+                <Button
+                    android:id="@+id/btn_chip_youtube"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="▶️ Open YouTube"
+                    android:backgroundTint="#162032"
+                    android:textColor="#F43F5E"
+                    android:textSize="11sp"
+                    android:layout_marginEnd="4dp" />
+
+                <Button
+                    android:id="@+id/btn_chip_alarm"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="⏰ Set 7 AM Alarm"
+                    android:backgroundTint="#162032"
+                    android:textColor="#FBBF24"
+                    android:textSize="11sp"
+                    android:layout_marginEnd="4dp" />
+
+                <Button
+                    android:id="@+id/btn_chip_home"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="🏠 Home Screen"
+                    android:backgroundTint="#162032"
+                    android:textColor="#34D399"
+                    android:textSize="11sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Cloud LLM Configuration (Gemini / OpenAI) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#0E1626"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:layout_marginBottom="14dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="AI REASONING BRAIN CONFIGURATION"
+                android:textColor="#38BDF8"
+                android:textSize="11sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Google Gemini / OpenAI API Key (Optional for complex reasoning):"
+                android:textColor="#94A3B8"
+                android:textSize="11sp"
+                android:layout_marginTop="4dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="6dp">
+
+                <EditText
+                    android:id="@+id/et_api_key"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Enter Gemini or OpenAI API Key..."
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#475569"
+                    android:background="#070A12"
+                    android:padding="10dp"
+                    android:textSize="11sp"
+                    android:inputType="textPassword" />
+
+                <Button
+                    android:id="@+id/btn_save_key"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Save"
+                    android:backgroundTint="#0284C7"
+                    android:textColor="#FFFFFF"
+                    android:textSize="11sp"
+                    android:layout_marginStart="6dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Live Diagnostics & Logs -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="#050811"
+            android:orientation="vertical"
+            android:padding="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="JARVIS TELEMETRY FEED"
+                android:textColor="#38BDF8"
+                android:textSize="10sp"
+                android:fontFamily="monospace" />
+
+            <ScrollView
+                android:id="@+id/scroll_logs"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="6dp">
+
+                <TextView
+                    android:id="@+id/tv_logs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="JARVIS System initialised. Awaiting authorization."
+                    android:textColor="#67E8F9"
+                    android:textSize="11sp"
+                    android:fontFamily="monospace" />
+            </ScrollView>
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
