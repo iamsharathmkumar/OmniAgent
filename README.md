@@ -53,14 +53,14 @@ OmniAgent/
 ## ⚡ Quick Start: Installing the APK
 
 ### Direct Sideload
-1. Download **`https://github.com/iamsharathmkumar/OmniAgent/releases/download/v1.0.0/OmniAgent-v1.0.apk`** to your phone.
+1. Download **`https://github.com/iamsharathmkumar/OmniAgent/releases/download/v2.0.0/OmniAgent-v2.0.apk`** to your phone.
 2. Tap the APK file and allow **"Install unknown apps"**.
 3. Open **OmniAgent AI** and follow the 3-step permission setup.
 
 ### Automated ADB Setup (1 Command)
 ```bash
 # 1. Install APK
-adb install -r https://github.com/iamsharathmkumar/OmniAgent/releases/download/v1.0.0/OmniAgent-v1.0.apk
+adb install -r https://github.com/iamsharathmkumar/OmniAgent/releases/download/v2.0.0/OmniAgent-v2.0.apk
 
 # 2. Grant OS Permissions & Accessibility Engine
 ./scripts/setup-and-grant-permissions.sh
