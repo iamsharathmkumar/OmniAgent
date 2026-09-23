@@ -73,6 +73,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
             etApiKey.setText(savedKey);
         }
 
+        // Start hands-free background service
+        Intent startVoice = new Intent(this, VoiceAssistantService.class);
+        startVoice.setAction(VoiceAssistantService.ACTION_ENABLE_ALWAYS_ON);
+        startService(startVoice);
+
         findViewById(R.id.btn_toggle_overlay).setOnClickListener(this);
         findViewById(R.id.btn_enable_accessibility).setOnClickListener(this);
         findViewById(R.id.btn_grant_overlay).setOnClickListener(this);
@@ -81,12 +86,12 @@ public class MainActivity extends Activity implements View.OnClickListener {
         findViewById(R.id.btn_execute).setOnClickListener(this);
         findViewById(R.id.btn_save_key).setOnClickListener(this);
 
+        findViewById(R.id.btn_chip_install).setOnClickListener(this);
+        findViewById(R.id.btn_chip_youtube).setOnClickListener(this);
+        findViewById(R.id.btn_chip_photo).setOnClickListener(this);
         findViewById(R.id.btn_chip_torch).setOnClickListener(this);
         findViewById(R.id.btn_chip_volume).setOnClickListener(this);
         findViewById(R.id.btn_chip_battery).setOnClickListener(this);
-        findViewById(R.id.btn_chip_youtube).setOnClickListener(this);
-        findViewById(R.id.btn_chip_alarm).setOnClickListener(this);
-        findViewById(R.id.btn_chip_home).setOnClickListener(this);
     }
 
     @Override
@@ -96,10 +101,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
             if (PermissionHelper.canDrawOverlays(this)) {
                 Intent intent = new Intent(this, FloatingOverlayService.class);
                 startService(intent);
-                Toast.makeText(this, "JARVIS Arc HUD Activated", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "SKAI Arc HUD Engaged", Toast.LENGTH_SHORT).show();
                 appendLog("Holographic Arc HUD projected on display.");
             } else {
-                Toast.makeText(this, "Please grant Overlay permission first, sir", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Please grant Overlay permission first", Toast.LENGTH_LONG).show();
                 PermissionHelper.openOverlaySettings(this);
             }
         } else if (id == R.id.btn_enable_accessibility) {
@@ -116,7 +121,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
             }
         } else if (id == R.id.btn_mic) {
             if (!PermissionHelper.hasAudioPermission(this)) {
-                Toast.makeText(this, "Microphone permission required, sir", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Microphone permission required for hands-free voice", Toast.LENGTH_SHORT).show();
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                     requestPermissions(new String[]{Manifest.permission.RECORD_AUDIO}, 101);
                 }
@@ -136,20 +141,20 @@ public class MainActivity extends Activity implements View.OnClickListener {
             String key = etApiKey.getText().toString().trim();
             SharedPreferences sp = getSharedPreferences("omni_prefs", Context.MODE_PRIVATE);
             sp.edit().putString("api_key", key).apply();
-            Toast.makeText(this, "AI Brain Key Saved!", Toast.LENGTH_SHORT).show();
-            appendLog("AI Brain API Key updated.");
-        } else if (id == R.id.btn_chip_torch) {
-            triggerCommand("Turn on flashlight");
-        } else if (id == R.id.btn_chip_volume) {
-            triggerCommand("Volume up");
-        } else if (id == R.id.btn_chip_battery) {
-            triggerCommand("Battery diagnostics");
+            Toast.makeText(this, "Gemini AI Brain Key Saved!", Toast.LENGTH_SHORT).show();
+            appendLog("Gemini Brain Key stored.");
+        } else if (id == R.id.btn_chip_install) {
+            triggerCommand("SKAI, install Subway Surfers");
         } else if (id == R.id.btn_chip_youtube) {
-            triggerCommand("Open YouTube");
-        } else if (id == R.id.btn_chip_alarm) {
-            triggerCommand("Set an alarm for 7:00 AM tomorrow");
-        } else if (id == R.id.btn_chip_home) {
-            triggerCommand("Go home");
+            triggerCommand("SKAI, play Interstellar soundtrack on YouTube");
+        } else if (id == R.id.btn_chip_photo) {
+            triggerCommand("SKAI, take a photo");
+        } else if (id == R.id.btn_chip_torch) {
+            triggerCommand("SKAI, turn on flashlight");
+        } else if (id == R.id.btn_chip_volume) {
+            triggerCommand("SKAI, volume up");
+        } else if (id == R.id.btn_chip_battery) {
+            triggerCommand("SKAI, battery diagnostics");
         }
     }
 
@@ -158,7 +163,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
         intent.setAction(VoiceAssistantService.ACTION_RUN_TEXT);
         intent.putExtra(VoiceAssistantService.EXTRA_COMMAND, command);
         startService(intent);
-        appendLog("JARVIS Prompt: \"" + command + "\"");
     }
 
     @Override
@@ -170,14 +174,14 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private void updateServiceState() {
         boolean running = AgentAccessibilityService.instance != null;
         if (running) {
-            tvServiceStatus.setText("Accessibility Subsystem: ENGAGED & ACTIVE");
+            tvServiceStatus.setText("Accessibility Subsystem: ACTIVE (Can control any screen)");
             tvServiceStatus.setTextColor(Color.parseColor("#34D399"));
-            tvCoreStatus.setText("NEURAL CORE: FULL AUTONOMOUS ACCESS");
+            tvCoreStatus.setText("HANDS-FREE WAKE: ACTIVE (Say 'SKAI')");
             tvCoreStatus.setTextColor(Color.parseColor("#34D399"));
         } else {
-            tvServiceStatus.setText("Accessibility Subsystem: OFFLINE (Tap to engage)");
+            tvServiceStatus.setText("Accessibility Subsystem: OFFLINE (Tap button 1 above)");
             tvServiceStatus.setTextColor(Color.parseColor("#F87171"));
-            tvCoreStatus.setText("NEURAL CORE: LIMITED (System actions only)");
+            tvCoreStatus.setText("HANDS-FREE WAKE: LIMITED (Enable accessibility)");
             tvCoreStatus.setTextColor(Color.parseColor("#FBBF24"));
         }
     }

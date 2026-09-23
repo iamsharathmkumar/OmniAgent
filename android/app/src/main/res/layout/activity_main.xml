@@ -11,7 +11,7 @@
         android:orientation="vertical"
         android:padding="20dp">
 
-        <!-- Header: Jarvis Arc Reactor Core -->
+        <!-- SKAI Humanoid Header -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -24,7 +24,7 @@
                 android:layout_height="wrap_content"
                 android:text="◉"
                 android:textColor="#00E5FF"
-                android:textSize="26sp"
+                android:textSize="28sp"
                 android:layout_marginEnd="10dp" />
 
             <LinearLayout
@@ -36,7 +36,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="JARVIS AI • Friday"
+                    android:text="SKAI Humanoid Agent"
                     android:textColor="#FFFFFF"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -45,9 +45,9 @@
                     android:id="@+id/tv_core_status"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="NEURAL CORE: ONLINE • STANDBY"
+                    android:text="HANDS-FREE WAKE: ACTIVE (Say 'SKAI')"
                     android:textColor="#00E5FF"
-                    android:textSize="10sp"
+                    android:textSize="11sp"
                     android:fontFamily="monospace" />
             </LinearLayout>
 
@@ -59,6 +59,33 @@
                 android:textSize="11sp"
                 android:backgroundTint="#0891B2"
                 android:textColor="#FFFFFF" />
+        </LinearLayout>
+
+        <!-- Zero-Touch Notice Banner -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#052E2B"
+            android:orientation="horizontal"
+            android:padding="12dp"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="14dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🎙️"
+                android:textSize="18sp"
+                android:layout_marginEnd="10dp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="ZERO-TOUCH ACTIVE: You never need to touch the phone. Speak naturally: 'SKAI, install Subway Surfers' or 'SKAI, play Queen on YouTube'."
+                android:textColor="#A7F3D0"
+                android:textSize="11sp"
+                android:lineSpacingExtra="2dp" />
         </LinearLayout>
 
         <!-- System Capabilities Status Card -->
@@ -73,7 +100,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="STARK OS SUB-SYSTEMS"
+                android:text="SYSTEM PERMISSIONS AND SUB-SYSTEMS"
                 android:textColor="#38BDF8"
                 android:textSize="11sp"
                 android:textStyle="bold" />
@@ -91,7 +118,7 @@
                 android:id="@+id/btn_enable_accessibility"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="1. Engage Accessibility Engine"
+                android:text="1. Engage Accessibility Engine (Controls Screen)"
                 android:backgroundTint="#1E293B"
                 android:textColor="#E2E8F0"
                 android:textSize="12sp"
@@ -101,7 +128,7 @@
                 android:id="@+id/btn_grant_overlay"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="2. Engage Floating Arc HUD Permission"
+                android:text="2. Engage Floating Arc HUD (Screen Overlay)"
                 android:backgroundTint="#1E293B"
                 android:textColor="#E2E8F0"
                 android:textSize="12sp"
@@ -111,14 +138,14 @@
                 android:id="@+id/btn_grant_audio"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="3. Engage Microphone Sensor"
+                android:text="3. Engage Microphone Sensor (Zero-Touch Voice)"
                 android:backgroundTint="#1E293B"
                 android:textColor="#E2E8F0"
                 android:textSize="12sp"
                 android:layout_marginTop="4dp" />
         </LinearLayout>
 
-        <!-- Voice Command Center -->
+        <!-- Voice & Playbook Command Center -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -130,7 +157,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="JARVIS VOICE PROTOCOL"
+                android:text="HUMANOID AUTONOMOUS PLAYBOOKS"
                 android:textColor="#38BDF8"
                 android:textSize="11sp"
                 android:textStyle="bold" />
@@ -147,7 +174,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="Instruct Jarvis (e.g. Flashlight, Open YouTube)..."
+                    android:hint="Type or speak to SKAI..."
                     android:textColor="#FFFFFF"
                     android:textColorHint="#475569"
                     android:background="#070A12"
@@ -158,7 +185,7 @@
                     android:id="@+id/btn_mic"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="🎙️ Voice"
+                    android:text="🎙️ Speak"
                     android:backgroundTint="#00E5FF"
                     android:textColor="#070A12"
                     android:textStyle="bold"
@@ -174,20 +201,53 @@
                     android:layout_marginStart="4dp" />
             </LinearLayout>
 
-            <!-- Jarvis Super Command Presets -->
+            <!-- Humanoid Test Commands -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Quick Voice Presets (Works on any Android Phone):"
+                android:text="Complex Hands-Free Autonomous Commands:"
                 android:textColor="#64748B"
                 android:textSize="10sp"
                 android:layout_marginTop="10dp" />
+
+            <Button
+                android:id="@+id/btn_chip_install"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="📥 'SKAI, install Subway Surfers on Play Store'"
+                android:backgroundTint="#162032"
+                android:textColor="#67E8F9"
+                android:textSize="11sp"
+                android:gravity="start|center_vertical"
+                android:layout_marginTop="4dp" />
+
+            <Button
+                android:id="@+id/btn_chip_youtube"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="▶️ 'SKAI, play Interstellar soundtrack on YouTube'"
+                android:backgroundTint="#162032"
+                android:textColor="#F43F5E"
+                android:textSize="11sp"
+                android:gravity="start|center_vertical"
+                android:layout_marginTop="4dp" />
+
+            <Button
+                android:id="@+id/btn_chip_photo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="📸 'SKAI, take a photo / take a selfie'"
+                android:backgroundTint="#162032"
+                android:textColor="#FBBF24"
+                android:textSize="11sp"
+                android:gravity="start|center_vertical"
+                android:layout_marginTop="4dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="6dp">
+                android:layout_marginTop="4dp">
 
                 <Button
                     android:id="@+id/btn_chip_torch"
@@ -221,45 +281,6 @@
                     android:textColor="#38BDF8"
                     android:textSize="11sp" />
             </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="4dp">
-
-                <Button
-                    android:id="@+id/btn_chip_youtube"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="▶️ Open YouTube"
-                    android:backgroundTint="#162032"
-                    android:textColor="#F43F5E"
-                    android:textSize="11sp"
-                    android:layout_marginEnd="4dp" />
-
-                <Button
-                    android:id="@+id/btn_chip_alarm"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="⏰ Set 7 AM Alarm"
-                    android:backgroundTint="#162032"
-                    android:textColor="#FBBF24"
-                    android:textSize="11sp"
-                    android:layout_marginEnd="4dp" />
-
-                <Button
-                    android:id="@+id/btn_chip_home"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="🏠 Home Screen"
-                    android:backgroundTint="#162032"
-                    android:textColor="#34D399"
-                    android:textSize="11sp" />
-            </LinearLayout>
         </LinearLayout>
 
         <!-- Cloud LLM Configuration (Gemini / OpenAI) -->
@@ -274,7 +295,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="AI REASONING BRAIN CONFIGURATION"
+                android:text="GEMINI MULTIMODAL REASONING (OPTIONAL)"
                 android:textColor="#38BDF8"
                 android:textSize="11sp"
                 android:textStyle="bold" />
@@ -282,7 +303,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Google Gemini / OpenAI API Key (Optional for complex reasoning):"
+                android:text="Enter your free Google Gemini API key to enable visual screen comprehension:"
                 android:textColor="#94A3B8"
                 android:textSize="11sp"
                 android:layout_marginTop="4dp" />
@@ -298,7 +319,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="Enter Gemini or OpenAI API Key..."
+                    android:hint="Enter Gemini API key (starts with AIza)..."
                     android:textColor="#FFFFFF"
                     android:textColorHint="#475569"
                     android:background="#070A12"
@@ -330,7 +351,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="JARVIS TELEMETRY FEED"
+                android:text="SKAI LIVE REASONING STREAM"
                 android:textColor="#38BDF8"
                 android:textSize="10sp"
                 android:fontFamily="monospace" />
@@ -345,7 +366,7 @@
                     android:id="@+id/tv_logs"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="JARVIS System initialised. Awaiting authorization."
+                    android:text="SKAI System online. Hands-free hotword active: Say 'SKAI' followed by any command."
                     android:textColor="#67E8F9"
                     android:textSize="11sp"
                     android:fontFamily="monospace" />
